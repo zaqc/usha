@@ -1,0 +1,146 @@
+# -------------------------------------------------------------------------- #
+#
+# Copyright (C) 1991-2013 Altera Corporation
+# Your use of Altera Corporation's design tools, logic functions 
+# and other software and tools, and its AMPP partner logic 
+# functions, and any output files from any of the foregoing 
+# (including device programming or simulation files), and any 
+# associated documentation or information are expressly subject 
+# to the terms and conditions of the Altera Program License 
+# Subscription Agreement, Altera MegaCore Function License 
+# Agreement, or other applicable license agreement, including, 
+# without limitation, that your use is for the sole purpose of 
+# programming logic devices manufactured by Altera and sold by 
+# Altera or its authorized distributors.  Please refer to the 
+# applicable agreement for further details.
+#
+# -------------------------------------------------------------------------- #
+#
+# Quartus II 64-Bit
+# Version 13.1.0 Build 162 10/23/2013 SJ Web Edition
+# Date created = 09:25:44  April 08, 2026
+#
+# -------------------------------------------------------------------------- #
+#
+# Notes:
+#
+# 1) The default values for assignments are stored in the file:
+#		us_handle5_assignment_defaults.qdf
+#    If this file doesn't exist, see file:
+#		assignment_defaults.qdf
+#
+# 2) Altera recommends that you do not modify this file. This
+#    file is updated automatically by the Quartus II software
+#    and any changes you make may be lost or overwritten.
+#
+# -------------------------------------------------------------------------- #
+
+
+set_global_assignment -name FAMILY "Cyclone IV E"
+set_global_assignment -name DEVICE EP4CE55F23I7
+set_global_assignment -name TOP_LEVEL_ENTITY us_handle5
+set_global_assignment -name ORIGINAL_QUARTUS_VERSION 13.1
+set_global_assignment -name PROJECT_CREATION_TIME_DATE "09:25:44  APRIL 08, 2026"
+set_global_assignment -name LAST_QUARTUS_VERSION 13.1
+set_global_assignment -name PROJECT_OUTPUT_DIRECTORY output_files
+set_global_assignment -name MIN_CORE_JUNCTION_TEMP "-40"
+set_global_assignment -name MAX_CORE_JUNCTION_TEMP 100
+set_global_assignment -name DEVICE_FILTER_PACKAGE FBGA
+set_global_assignment -name DEVICE_FILTER_PIN_COUNT 484
+set_global_assignment -name DEVICE_FILTER_SPEED_GRADE 7
+set_global_assignment -name ERROR_CHECK_FREQUENCY_DIVISOR 1
+set_global_assignment -name EDA_SIMULATION_TOOL "ModelSim-Altera (VHDL)"
+set_global_assignment -name EDA_OUTPUT_DATA_FORMAT VHDL -section_id eda_simulation
+set_global_assignment -name VERILOG_FILE us_handle5.v
+set_global_assignment -name PARTITION_NETLIST_TYPE SOURCE -section_id Top
+set_global_assignment -name PARTITION_FITTER_PRESERVATION_LEVEL PLACEMENT_AND_ROUTING -section_id Top
+set_global_assignment -name PARTITION_COLOR 16764057 -section_id Top
+set_global_assignment -name STRATIX_DEVICE_IO_STANDARD "3.3-V LVTTL"
+set_location_assignment PIN_A17 -to d_lin[11]
+set_location_assignment PIN_B17 -to d_lin[10]
+set_location_assignment PIN_A16 -to d_lin[9]
+set_location_assignment PIN_B16 -to d_lin[8]
+set_location_assignment PIN_A15 -to d_lin[7]
+set_location_assignment PIN_B15 -to d_lin[6]
+set_location_assignment PIN_A14 -to d_lin[5]
+set_location_assignment PIN_B14 -to d_lin[4]
+set_location_assignment PIN_A13 -to d_lin[3]
+set_location_assignment PIN_B13 -to d_lin[2]
+set_location_assignment PIN_A10 -to d_lin[1]
+set_location_assignment PIN_B10 -to d_lin[0]
+set_location_assignment PIN_A8 -to d_log[9]
+set_location_assignment PIN_B8 -to d_log[8]
+set_location_assignment PIN_A7 -to d_log[7]
+set_location_assignment PIN_B7 -to d_log[6]
+set_location_assignment PIN_A6 -to d_log[5]
+set_location_assignment PIN_B6 -to d_log[4]
+set_location_assignment PIN_A5 -to d_log[3]
+set_location_assignment PIN_B5 -to d_log[2]
+set_location_assignment PIN_A4 -to d_log[1]
+set_location_assignment PIN_B4 -to d_log[0]
+set_location_assignment PIN_B21 -to ddac_lin[1]
+set_location_assignment PIN_C21 -to ddac_lin[0]
+set_location_assignment PIN_P1 -to enc_a[1]
+set_location_assignment PIN_V2 -to enc_a[0]
+set_location_assignment PIN_P2 -to enc_b[1]
+set_location_assignment PIN_W1 -to enc_b[0]
+set_location_assignment PIN_R1 -to enc_sw[1]
+set_location_assignment PIN_W2 -to enc_sw[0]
+set_location_assignment PIN_B18 -to flt_sel[1]
+set_location_assignment PIN_A18 -to flt_sel[0]
+set_location_assignment PIN_AB13 -to io[7]
+set_location_assignment PIN_AA13 -to io[6]
+set_location_assignment PIN_AA9 -to io[5]
+set_location_assignment PIN_AB10 -to io[4]
+set_location_assignment PIN_AA8 -to io[3]
+set_location_assignment PIN_AB9 -to io[2]
+set_location_assignment PIN_AA7 -to io[1]
+set_location_assignment PIN_AB8 -to io[0]
+set_location_assignment PIN_U1 -to key[2]
+set_location_assignment PIN_T3 -to key[1]
+set_location_assignment PIN_R2 -to key[0]
+set_location_assignment PIN_AB7 -to rxd[1]
+set_location_assignment PIN_AA6 -to rxd[0]
+set_location_assignment PIN_V1 -to scan[1]
+set_location_assignment PIN_U2 -to scan[0]
+set_location_assignment PIN_N2 -to tled[1]
+set_location_assignment PIN_N1 -to tled[0]
+set_location_assignment PIN_AA3 -to txd[1]
+set_location_assignment PIN_AB3 -to txd[0]
+set_location_assignment PIN_F21 -to zndhi[1]
+set_location_assignment PIN_M1 -to zndhi[0]
+set_location_assignment PIN_E22 -to zndlow[1]
+set_location_assignment PIN_E21 -to zndlow[0]
+set_location_assignment PIN_F22 -to zpwr_on[1]
+set_location_assignment PIN_M2 -to zpwr_on[0]
+set_location_assignment PIN_E3 -to alt_rdy
+set_location_assignment PIN_Y4 -to alt_rx
+set_location_assignment PIN_Y3 -to alt_tx
+set_location_assignment PIN_T22 -to clk50
+set_location_assignment PIN_A11 -to clk50_1
+set_location_assignment PIN_AB6 -to crs_dv
+set_location_assignment PIN_C1 -to ddac_log
+set_location_assignment PIN_Y1 -to gps_rx
+set_location_assignment PIN_Y2 -to gps_tx
+set_location_assignment PIN_D22 -to lohi
+set_location_assignment PIN_B20 -to mclk_adc
+set_location_assignment PIN_E5 -to mclk_adc_log
+set_location_assignment PIN_AB5 -to mdc
+set_location_assignment PIN_AA5 -to mdio
+set_location_assignment PIN_AB4 -to phy_rst
+set_location_assignment PIN_AB11 -to refclk
+set_location_assignment PIN_E4 -to reset_n
+set_location_assignment PIN_D21 -to rscom_lin
+set_location_assignment PIN_B2 -to rscom_log
+set_location_assignment PIN_B22 -to sclk_lin
+set_location_assignment PIN_C2 -to sclk_log
+set_location_assignment PIN_C22 -to syncn_lin
+set_location_assignment PIN_B1 -to syncn_log
+set_location_assignment PIN_AA4 -to tx_en
+set_global_assignment -name USE_CONFIGURATION_DEVICE OFF
+set_global_assignment -name CRC_ERROR_OPEN_DRAIN OFF
+set_global_assignment -name OUTPUT_IO_TIMING_NEAR_END_VMEAS "HALF VCCIO" -rise
+set_global_assignment -name OUTPUT_IO_TIMING_NEAR_END_VMEAS "HALF VCCIO" -fall
+set_global_assignment -name OUTPUT_IO_TIMING_FAR_END_VMEAS "HALF SIGNAL SWING" -rise
+set_global_assignment -name OUTPUT_IO_TIMING_FAR_END_VMEAS "HALF SIGNAL SWING" -fall
+set_instance_assignment -name PARTITION_HIERARCHY root_partition -to | -section_id Top

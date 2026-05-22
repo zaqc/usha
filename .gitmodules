@@ -1,0 +1,4 @@
+[submodule "eth_v"]
+	path = eth_v
+	url = git@github.com:zaqc/eth_v.git
+	branch = SPRUT
