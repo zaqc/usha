@@ -68,7 +68,7 @@ module us_handle5(
 	assign alt_rdy = 1'b1;
 	//------------------------------------
 	//временные заглушки на сигналы во избежание лишнего потребления
-	assign phy_rst = 1'b1;
+	//assign phy_rst = 1'b1;
 	assign scan = 2'bzz;
 	assign zpwr_on = 2'b00;
 	assign zndhi = 2'b00;
@@ -85,5 +85,70 @@ module us_handle5(
 	begin
 		t_count <= t_count + 1'b1;
 	end
+
+	
+
+	wire						phy_rst_n;
+	assign phy_rst = phy_rst_n;
+
+	wire						rst_n;
+	wire						sysclk;
+		
+	wire						pll_txclk;
+	eth_pll eth_pll_unit(
+		.inclk0(clk50),
+		//.c0(pll_txclk),
+		//.c1(rgmii_rxclk),
+		
+		//.c2(refclk),
+		
+		.locked(phy_rst_n)
+	);
+	
+	wire						adc_clk;
+	wire						dac_clk;
+	wire						hit_clk;
+	main_pll main_pll_unit(		
+		.inclk0(clk50),
+		
+		.c0(sysclk),
+		
+		.c1(adc_clk),
+		.c2(dac_clk),
+		.c3(hit_clk),
+
+		.locked(rst_n)
+	);
+	
+	//------------------------------------------------------------------------
+	//	Ethernet 10/100
+	//------------------------------------------------------------------------
+	
+	wire		[15:0]			frame_size;
+	assign frame_size = 1024;
+
+	emac_eth emac_eth_unit(
+		.rst_n(rst_n),
+		.sysclk(sysclk),
+		
+		//.i_sync(sync_cntr[20]),
+		
+		.i_frame_size(frame_size),
+		
+		.i_refclk(refclk),
+		//.o_refclk(refclk),
+		
+		//.o_ephy_rst_n(ephy1_rstn),
+		
+		.i_rxd(rxd),
+		.i_rxdv(crs_dv),
+		//.i_rxer(rmii_rxer),
+		
+		.o_txd(txd),
+		.o_txen(tx_en),
+		
+		.o_mdc(mdc),
+		.io_mdio(mdio)
+	);
 
 endmodule

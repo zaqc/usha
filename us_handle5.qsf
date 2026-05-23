@@ -51,10 +51,6 @@ set_global_assignment -name DEVICE_FILTER_SPEED_GRADE 7
 set_global_assignment -name ERROR_CHECK_FREQUENCY_DIVISOR 1
 set_global_assignment -name EDA_SIMULATION_TOOL "Questa Intel FPGA (VHDL)"
 set_global_assignment -name EDA_OUTPUT_DATA_FORMAT VHDL -section_id eda_simulation
-set_global_assignment -name VERILOG_FILE us_handle5.v
-set_global_assignment -name PARTITION_NETLIST_TYPE SOURCE -section_id Top
-set_global_assignment -name PARTITION_FITTER_PRESERVATION_LEVEL PLACEMENT_AND_ROUTING -section_id Top
-set_global_assignment -name PARTITION_COLOR 16764057 -section_id Top
 set_global_assignment -name STRATIX_DEVICE_IO_STANDARD "3.3-V LVTTL"
 set_location_assignment PIN_A17 -to d_lin[11]
 set_location_assignment PIN_B17 -to d_lin[10]
@@ -143,4 +139,32 @@ set_global_assignment -name OUTPUT_IO_TIMING_NEAR_END_VMEAS "HALF VCCIO" -rise
 set_global_assignment -name OUTPUT_IO_TIMING_NEAR_END_VMEAS "HALF VCCIO" -fall
 set_global_assignment -name OUTPUT_IO_TIMING_FAR_END_VMEAS "HALF SIGNAL SWING" -rise
 set_global_assignment -name OUTPUT_IO_TIMING_FAR_END_VMEAS "HALF SIGNAL SWING" -fall
+set_global_assignment -name POWER_PRESET_COOLING_SOLUTION "23 MM HEAT SINK WITH 200 LFPM AIRFLOW"
+set_global_assignment -name POWER_BOARD_THERMAL_MODEL "NONE (CONSERVATIVE)"
+set_global_assignment -name QIP_FILE main_pll.qip
+set_global_assignment -name QIP_FILE eth_v/eth/eth_tx_fifo.qip
+set_global_assignment -name VERILOG_FILE eth_v/emac_eth.v
+set_global_assignment -name VERILOG_FILE eth_v/mii2rmii/mii2rmii.v
+set_global_assignment -name SYSTEMVERILOG_FILE eth_v/mii2rmii/intel_fpga_mii2rmii.sv
+set_global_assignment -name SYSTEMVERILOG_FILE eth_v/mii2rmii/clkdiv2.sv
+set_global_assignment -name SYSTEMVERILOG_FILE eth_v/mii2rmii/clkdiv10.sv
+set_global_assignment -name VERILOG_FILE eth_v/eth/send_udp_pkt.v
+set_global_assignment -name VERILOG_FILE eth_v/eth/send_ping_resp.v
+set_global_assignment -name VERILOG_FILE eth_v/eth/send_ip_frame.v
+set_global_assignment -name VERILOG_FILE eth_v/eth/send_arp_pkt.v
+set_global_assignment -name VERILOG_FILE eth_v/eth/rise_detector.v
+set_global_assignment -name VERILOG_FILE eth_v/eth/ping_payload.v
+set_global_assignment -name VERILOG_FILE eth_v/eth/eth_pkt_type.v
+set_global_assignment -name VERILOG_FILE eth_v/eth/packet_sender.v
+set_global_assignment -name VERILOG_FILE eth_v/eth/packet_param.v
+set_global_assignment -name VERILOG_FILE eth_v/eth/eth_switch_output.v
+set_global_assignment -name VERILOG_FILE eth_v/eth/eth_parser.v
+set_global_assignment -name VERILOG_FILE eth_v/eth/cmd_parser.v
+set_global_assignment -name QIP_FILE eth_v/mac.qip
+set_global_assignment -name QIP_FILE eth_v/eth_pll.qip
+set_global_assignment -name VERILOG_FILE eth_v/mac_init/init_phy.v
+set_global_assignment -name VERILOG_FILE us_handle5.v
+set_global_assignment -name PARTITION_NETLIST_TYPE SOURCE -section_id Top
+set_global_assignment -name PARTITION_FITTER_PRESERVATION_LEVEL PLACEMENT_AND_ROUTING -section_id Top
+set_global_assignment -name PARTITION_COLOR 16764057 -section_id Top
 set_instance_assignment -name PARTITION_HIERARCHY root_partition -to | -section_id Top
