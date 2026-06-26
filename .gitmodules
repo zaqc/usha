@@ -2,3 +2,6 @@
 	path = eth_v
 	url = git@github.com:zaqc/eth_v.git
 	branch = SPRUT
+[submodule "handus"]
+	path = handus
+	url = git@github.com:tvema/handus.git

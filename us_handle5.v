@@ -92,7 +92,7 @@ module us_handle5(
 	assign phy_rst = phy_rst_n;
 
 	wire						rst_n;
-	wire						sysclk;
+	wire						sys_clk;
 		
 	wire						pll_txclk;
 	eth_pll eth_pll_unit(
@@ -106,16 +106,18 @@ module us_handle5(
 	);
 	
 	wire						adc_clk;
+	wire						log_clk;
 	wire						dac_clk;
-	wire						hit_clk;
+	wire						hi_clk;
 	main_pll main_pll_unit(		
 		.inclk0(clk50),
 		
-		.c0(sysclk),
+		.c0(sys_clk),
 		
 		.c1(adc_clk),
-		.c2(dac_clk),
-		.c3(hit_clk),
+		.c2(log_clk),
+		.c3(dac_clk),
+		.c4(hi_clk),
 
 		.locked(rst_n)
 	);
@@ -126,14 +128,30 @@ module us_handle5(
 	
 	wire		[15:0]			frame_size;
 	assign frame_size = 1024;
+	
+	reg			[23:0]			cntr;
+	always @ (posedge sys_clk) cntr <= cntr + 1'd1;
+	
+	reg			[1:0]			sync_rise;
+	always @ (posedge sys_clk) sync_rise <= {sync_rise[0], cntr[23]};
+	
+	wire		[31:0]			packet_data;
+	wire						packet_vld;
+	wire						packet_rdy;
+	wire						packet_ready;
+	wire		[15:0]			packet_size;
 
 	emac_eth emac_eth_unit(
 		.rst_n(rst_n),
-		.sysclk(sysclk),
+		.sysclk(sys_clk),
 		
-		//.i_sync(sync_cntr[20]),
+		.i_sync(packet_ready),
 		
-		.i_frame_size(frame_size),
+		.i_frame_data(packet_data),
+		.i_frame_vld(packet_vld),
+		.o_frame_rdy(packet_rdy),
+		
+		.i_frame_size(packet_size_size),
 		
 		.i_refclk(refclk),
 		//.o_refclk(refclk),
@@ -149,6 +167,24 @@ module us_handle5(
 		
 		.o_mdc(mdc),
 		.io_mdio(mdio)
+	);
+	
+	main main_u(
+		.rst_n(rst_n),
+		.sys_clk(sys_clk),
+		.adc_clk(adc_clk),
+		.log_clk(log_clk),
+		.dac_clk(dac_clk),
+		.hi_clk(hi_clk),
+		
+		.i_sys_sync(sync_rise == 2'b01),
+		
+		.o_packet_data(packet_data),
+		.o_packet_vld(packet_vld),
+		.i_packet_rdy(packet_rdy),
+		
+		.o_packet_ready(packet_ready),
+		.o_packet_size(packet_size)
 	);
 
 endmodule
